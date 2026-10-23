@@ -3,8 +3,8 @@ charly-filebrowser:
         description: |-
             Drained concept candy — kept only so this repo still validates as a project while
             it awaits retirement (opencharly/opencharly#600). It owns NO `skill:` entity any
-            more: under AGENTS.md Part II #5 the 1 `filebrowser` family skills moved,
-            byte-identically, to the repositories that hold the code, plugin or config each one
+            more: under AGENTS.md Part II #5 the one `filebrowser` family skill moved,
+            byte-identically, to the repository that holds the code, plugin or config it
             documents — `pod-filebrowser`.
             Nothing is authored here now.
         plan:
