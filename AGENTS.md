@@ -1,59 +1,38 @@
-# AGENTS.md — layer-charly-filebrowser
+# AGENTS.md — layer-charly-filebrowser (retired)
 
-Standalone candy repo for the `charly-filebrowser` concept candy — it ships no
-install content and owns the `filebrowser` family of `skill:` entities whose
-names have no namesake candy. It currently carries one entity, the
-`filebrowser-layer` skill (FileBrowser Quantum, the config-file-driven web file
-manager). The entities live in `charly.yml` at the repo root;
-`candy/plugin-marketplace` regenerates the standalone opencharly/marketplace
-corpus from them.
+This repo is **retired**: it authors nothing and must not be edited except to
+record a further move. It was the `charly-filebrowser` concept candy — a `true`-no-op
+`plan:` plus one `skill:` routing node with its prose in `.agents/skills/`.
+Under `AGENTS.md` Part II #5 a skill lives in the repo whose code, plugin or
+config it describes, and none of it lived here, so the skill moved
+byte-identically to the repo that holds the entity it documents:
+
+- `filebrowser-layer` → `opencharly/pod-filebrowser`.
+
+The `/charly-filebrowser:<skill>` addresses are unchanged: family `filebrowser` is carried by the
+destination nodes, so the dispatcher rows did not move meaning.
 
 Canonical files:
 
-- `charly.yml` — the `charly-filebrowser:` concept candy entity plus the
-  `filebrowser-layer-skill:` entity (`name: filebrowser-layer`,
-  `family: filebrowser`).
+- `charly.yml` — the drained `charly-filebrowser:` candy entity: a `true` no-op `plan:`
+  plus a `true` no-op `check:` (it asserts nothing; it is a placeholder step). It
+  exists only so this repo validated as a project before retirement.
+- `README.md` — user overview only; never agent guidance; it is the destination map.
 - `.github/workflows/tag-on-merge.yml` — CalVer tag + `CHANGELOG/` on merge.
-- `README.md` — user overview only; never agent guidance.
-
-## Load these skills first (R0)
-
-- `/charly-filebrowser:filebrowser-layer` — the owning skill for this repo's
-  single `skill:` entity (FileBrowser Quantum setup, port 8080,
-  `FILEBROWSER_CONFIG`, the `files`/`data` volumes). Load before editing that
-  entity.
-- `/charly-image:layer` — the candy authoring reference (`charly.yml` schema,
-  `plan:` step verbs incl. `check:`, package sections, service declarations).
-  Load before editing any entity field or plan step.
-
-## Build / validate / test
-
-- `charly box validate` at the repo root — the structural check: the manifest
-  must parse and validate at the installed charly.
-- The merge gate is the **org-wide** `charly/pr-validator` (required check
-  `validate / validate`, defined in `opencharly/.github`); this repo has no
-  per-repo candy gate.
-- The candy is documentation-only: its `plan:` is a `true` no-op plus a `true`
-  `check:` that the skill entities are present and generated into the
-  marketplace. There is no live bed.
 
 ## Modify this repo
 
-- The `skill:` entity is the projected usage source. Edit it here, never the
-  generated `SKILL.md` in the marketplace corpus; a corpus regeneration
-  (`charly marketplace generate`) projects it.
-- When the FileBrowser candy's behaviour changes (version, config path, port,
-  volumes), update the matching `skill:` entity in the same change so the corpus
-  does not drift.
-- Keep the concept candy's `plan:` no-op; it exists only to carry the entities.
+- Don't. There is no skill, node or prose here to update. A change to a
+  `filebrowser`-family skill is a change at its destination repo, in the same pull
+  request as the entity it documents.
 
 ## Landing
 
 - PR-only. Every change lands through a pull request; the org-required
-  `charly/pr-validator` validates the diff and body and arms native auto-merge
-  on PASS. Direct pushes to `main` are blocked.
-- History lives in `CHANGELOG/` (written by `tag-on-merge` at merge time); the
-  PR body IS the changelog.
+  `charly/pr-validator` validates the diff and body and arms native auto-merge on
+  PASS. Direct pushes to `main` are blocked.
+- History lives in `CHANGELOG/` (written by `tag-on-merge` at merge time); the PR
+  body IS the changelog.
 - The authoritative rulebook is the umbrella `AGENTS.md` in
   `opencharly/opencharly` and `charly/AGENTS.md` in the charly repo. Do not
   restate its rules here.
